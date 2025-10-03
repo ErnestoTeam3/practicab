@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+   provider   = "postgresql"
+  url        = env("DATABASE_URL")   // migraciones: 5432
+  
 }
 
 model Client {
@@ -24,4 +25,5 @@ model Freelancer {
   profilePic String?
   email      String  @unique
   password   String
+  isActive   Boolean @default(false)
 }
